@@ -1,8 +1,40 @@
 {
    "en": {
-      "title": "Your horoscope"
+      "title": "Your horoscope",
+      "main_header": "Select your zodiac sign",
+      "zodiac_signs": [
+         {"name": "Aries", "img": "/img/zodiacs/aries.svg"},
+         {"name": "Taurus", "img": "/img/zodiacs/taurus.svg"},
+         {"name": "Gemini", "img": "/img/zodiacs/gemini.svg"},
+         {"name": "Cancer", "img": "/img/zodiacs/cancer.svg"},
+         {"name": "Leo", "img": "/img/zodiacs/leo.svg"},
+         {"name": "Virgo", "img": "/img/zodiacs/virgo.svg"},
+         {"name": "Libra", "img": "/img/zodiacs/libra.svg"},
+         {"name": "Scorpio", "img": "/img/zodiacs/scorpio.svg"},
+         {"name": "Sagittarius", "img": "/img/zodiacs/sagittarius.svg"},
+         {"name": "Capricorn", "img": "/img/zodiacs/capricorn.svg"},
+         {"name": "Aquarius", "img": "/img/zodiacs/aquarius.svg"},
+         {"name": "Pisces", "img": "/img/zodiacs/pisces.svg"}
+      ],
+      "zodiac_options": ["For day", "For week", "For month"]
    },
    "ru": {
-      "title": "Твой гороскоп"
+      "title": "Твой гороскоп",
+      "main_header": "Выбери свой знак зодиака",
+      "zodiac_signs": [
+         {"name": "Овен", "img": "/img/zodiacs/aries.svg"},
+         {"name": "Телец", "img": "/img/zodiacs/taurus.svg"},
+         {"name": "Близнецы", "img": "/img/zodiacs/gemini.svg"},
+         {"name": "Рак", "img": "/img/zodiacs/cancer.svg"},
+         {"name": "Лев", "img": "/img/zodiacs/leo.svg"},
+         {"name": "Дева", "img": "/img/zodiacs/virgo.svg"},
+         {"name": "Весы", "img": "/img/zodiacs/libra.svg"},
+         {"name": "Скорпион", "img": "/img/zodiacs/scorpio.svg"},
+         {"name": "Стрелец", "img": "/img/zodiacs/sagittarius.svg"},
+         {"name": "Козерог", "img": "/img/zodiacs/capricorn.svg"},
+         {"name": "Водолей", "img": "/img/zodiacs/aquarius.svg"},
+         {"name": "Рыбы", "img": "/img/zodiacs/pisces.svg"}
+      ],
+      "zodiac_options": ["На день", "На неделю", "На месяц"]
    }
 }

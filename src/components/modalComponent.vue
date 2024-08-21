@@ -1,5 +1,5 @@
 <template>
-<div v-if="isActive" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
+<div v-if="isActive" class="fixed z-50 inset-0 bg-black bg-opacity-75 flex justify-center items-center">
   <div class="max-w-sm p-4 bg-white rounded-lg shadow-lg">
     <button @click="$emit('close')" class="absolute top-0 right-0 m-4 text-white">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">

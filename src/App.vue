@@ -15,19 +15,21 @@ function changeLanguage(language){
   isChangeLangModal.value = false
 }
 
-onBeforeMount(() => {
-   const theme = Telegram.WebApp.colorScheme;
-   theme === 'dark' ? darkMode.value = true : darkMode.value = false
-})
+// Не удалять
 
-onBeforeMount(() => {
-  if(localStorage.getItem('userLang')){
-    lang.value = localStorage.getItem('userLang')
-  } else {
-    lang.value = Telegram.WebApp.initDataUnsafe.user.language_code;
-    localStorage.setItem('userLang', lang.value)
-  }
-})
+// onBeforeMount(() => {
+//    const theme = Telegram.WebApp.colorScheme;
+//    theme === 'dark' ? darkMode.value = true : darkMode.value = false
+// })
+
+// onBeforeMount(() => {
+//   if(localStorage.getItem('userLang')){
+//     lang.value = localStorage.getItem('userLang')
+//   } else {
+//     lang.value = Telegram.WebApp.initDataUnsafe.user.language_code;
+//     localStorage.setItem('userLang', lang.value)
+//   }
+// })
 </script>
 
 <template>
@@ -49,7 +51,7 @@ onBeforeMount(() => {
       <button v-if="darkMode" @click="darkMode = false"><img src="/img/sun.svg" alt="lang icon" class="w-8 h-8 absolute top-2 right-2 bg-white/50 dark:bg-white rounded-lg dark:text-white dark:fill-white"></button>
   
       <!-- Контент -->
-      <p>Выбери:</p>
+       <router-view />
     </div>
   </wrapperComponent>
 </template>
