@@ -1,6 +1,7 @@
 <script setup>
 import { onBeforeMount, ref } from 'vue';
 import { useI18n } from 'vue-i18n';
+import { BackButton } from "vue-tg";
 import words from '../settings/lang/langs.json'
 import { useRouter } from 'vue-router';
 
@@ -49,4 +50,5 @@ function selectSignAndDate(date){
          <p class="p-1 bg-white/50 rounded-lg mt-4" @click="isOptionModal = false">Back</p>
       </div>
    </div>
+   <BackButton @click="router.push('/')" />
 </template>

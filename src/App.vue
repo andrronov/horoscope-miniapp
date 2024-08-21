@@ -17,19 +17,19 @@ function changeLanguage(language){
 
 // Не удалять
 
-// onBeforeMount(() => {
-//    const theme = Telegram.WebApp.colorScheme;
-//    theme === 'dark' ? darkMode.value = true : darkMode.value = false
-// })
+onBeforeMount(() => {
+   const theme = Telegram.WebApp.colorScheme;
+   theme === 'dark' ? darkMode.value = true : darkMode.value = false
+})
 
-// onBeforeMount(() => {
-//   if(localStorage.getItem('userLang')){
-//     lang.value = localStorage.getItem('userLang')
-//   } else {
-//     lang.value = Telegram.WebApp.initDataUnsafe.user.language_code;
-//     localStorage.setItem('userLang', lang.value)
-//   }
-// })
+onBeforeMount(() => {
+  if(localStorage.getItem('userLang')){
+    lang.value = localStorage.getItem('userLang')
+  } else {
+    lang.value = Telegram.WebApp.initDataUnsafe.user.language_code;
+    localStorage.setItem('userLang', lang.value)
+  }
+})
 </script>
 
 <template>
