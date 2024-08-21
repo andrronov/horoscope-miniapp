@@ -1,0 +1,1 @@
+import{u as t,o as s,c as a,g as n,e as r,F as u,b as c}from"./index-Dj1avTu3.js";import{S as l}from"./index.es-Yuc9i1aH.js";const m=c("h1",null,"Error: Page doesn't found",-1),g={__name:"errorPage",setup(p){const o=t();return(_,e)=>(s(),a(u,null,[m,n(r(l),{onClick:e[0]||(e[0]=d=>r(o).push("/"))})],64))}};export{g as default};
