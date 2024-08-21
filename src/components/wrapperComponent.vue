@@ -28,18 +28,13 @@ import { onBeforeMount, ref } from "vue"
 // })
 
 const props = defineProps({
-   title: {type: String}
-})
-
-const darkMode = ref(null)
-onBeforeMount(() => {
-   const theme = Telegram.WebApp.colorScheme;
-   theme === 'dark' ? darkMode.value = true : darkMode.value = false
+   title: {type: String},
+   darkMode: {type: Boolean}
 })
 </script>
 
 <template>
-   <div :class="{'dark': darkMode}">
+   <div :class="{'dark': props.darkMode}">
       <div class="flex flex-col justify-between items-center py-2 min-h-screen bg-gradient-to-r from-purple-500 via-blue-400 to-white animate-gradient text-black dark:text-white dark:from-purple-950 dark:via-slate-900-900 dark:to-black">
          <p class="font-semibold text-xl">{{ props.title }}</p>
          <slot />

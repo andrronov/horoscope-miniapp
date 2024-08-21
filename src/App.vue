@@ -1,23 +1,55 @@
 <script setup>
-import wrapperComponent from './components/wrapperComponent.vue'
-import modalComponent from './components/modalComponent.vue';
 import { onBeforeMount, ref } from 'vue';
 import { useI18n } from 'vue-i18n';
+import wrapperComponent from './components/wrapperComponent.vue'
+import modalComponent from './components/modalComponent.vue';
 
 const {t, locale} = useI18n({useScope: 'global'})
 const lang = ref(locale)
 const isChangeLangModal = ref(false)
+const darkMode = ref(null)
+
+function changeLanguage(language){
+  lang.value = language
+  localStorage.setItem('userLang', language)
+  isChangeLangModal.value = false
+}
 
 onBeforeMount(() => {
-  lang.value = Telegram.WebApp.initDataUnsafe.user.language_code;
+   const theme = Telegram.WebApp.colorScheme;
+   theme === 'dark' ? darkMode.value = true : darkMode.value = false
+})
+
+onBeforeMount(() => {
+  if(localStorage.getItem('userLang')){
+    lang.value = localStorage.getItem('userLang')
+  } else {
+    lang.value = Telegram.WebApp.initDataUnsafe.user.language_code;
+    localStorage.setItem('userLang', lang.value)
+  }
 })
 </script>
 
 <template>
-  <modalComponent :is-active="isChangeLangModal" @close="isChangeLangModal = false" />
+  <wrapperComponent :title="$t('title')" :dark-mode="darkMode">
+
+    <!-- Сменить язык -->
+    <modalComponent :is-active="isChangeLangModal" @close="isChangeLangModal = false">
+      <div class="dark:text-black flex flex-col items-center gap-4">
+        <p class="font-medium">Select language:</p>
+        <button @click="changeLanguage('en')">English</button>
+        <button @click="changeLanguage('ru')">Russian</button>
+      </div>
+    </modalComponent>
+    
+    <div>
+      <!-- Верхние кнопки -->
+      <button @click="isChangeLangModal = true"><img src="/img/lang.svg" alt="lang icon" class="w-8 h-8 absolute top-2 left-2 bg-white/50 dark:bg-white rounded-lg dark:text-white dark:fill-white"></button>    
+      <button v-if="!darkMode" @click="darkMode = true"><img src="/img/moon.svg" alt="lang icon" class="w-8 h-8 absolute top-2 right-2 bg-white/50 dark:bg-white rounded-lg dark:text-white dark:fill-white"></button>
+      <button v-if="darkMode" @click="darkMode = false"><img src="/img/sun.svg" alt="lang icon" class="w-8 h-8 absolute top-2 right-2 bg-white/50 dark:bg-white rounded-lg dark:text-white dark:fill-white"></button>
   
-  <wrapperComponent :title="$t('title')">
-    <!-- Выбрать другую иконку -->
-    <button @click="isChangeLangModal = true"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2h2.894l2 2v1a2 2 0 002 2h4a2 2 0 002-2v-1a2 2 0 00-2-2H10.5a2 2 0 00-1.5-1.5l-2-2v-1a2 2 0 00-2-2H5a2 2 0 00-2 2v1a2 2 0 002 2zm0-1a1 1 0 00-1 1v3a1 1 0 002 0V6.414l.293.293a1 1 0 011.414 0l2 2a1 1 0 010 1.414l-2 2a1 1 0 01-1.414-1.414L5 12.414V6.414a1 1 0 011 1z" /></svg></button>
+      <!-- Контент -->
+      <p>Выбери:</p>
+    </div>
   </wrapperComponent>
 </template>
