@@ -10,27 +10,18 @@ const {t, locale} = useI18n({useScope: 'global'})
 const lang = ref(locale)
 const isOptionModal = ref(false)
 const zodiac_sign = ref(null)
+const sign_id = ref(null)
 
 function selectSign(idx){
    zodiac_sign.value = words.en.zodiac_signs[idx].name.toLowerCase()
+   sign_id.value = idx
+   console.log(idx)
    isOptionModal.value = true
 }
 
 function selectSignAndDate(date){
-   switch (date) {
-      case 0:
-         router.push(`/horoscope?sign=${zodiac_sign.value}&date=today`)
-         break;
-      case 1:
-         router.push(`/horoscope?sign=${zodiac_sign.value}&date=week`)
-         break;
-      case 2:
-         router.push(`/horoscope?sign=${zodiac_sign.value}&date=month`)
-         break;
-      default:
-         router.push('/error')
-         break;
-   }
+   console.log(date);
+   router.push(`/horoscope?sign=${zodiac_sign.value}&date=${date}&idx=${sign_id.value}`)
 }
 </script>
 
@@ -49,6 +40,6 @@ function selectSignAndDate(date){
          <p class="p-2 bg-white/75 rounded-lg dark:text-black hover:scale-110 transition-transform duration-300 ease-in-out" v-for="(option, index) in words[lang].zodiac_options" :key="index" @click="selectSignAndDate(index)">{{ option }}</p>
          <p class="p-1 bg-white/50 rounded-lg mt-4 dark:text-black" @click="isOptionModal = false">{{ $t('back_button') }}</p>
       </div>
+      <BackButton @click="router.push('/main')" />
    </div>
-   <BackButton @click="router.push('/')" />
 </template>

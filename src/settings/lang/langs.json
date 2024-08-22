@@ -17,7 +17,9 @@
          {"name": "Pisces", "img": "/img/zodiacs/pisces.svg"}
       ],
       "zodiac_options": ["For day", "For week", "For month"],
-      "back_button": "Back"
+      "horoscope_for": "Horoscope for ",
+      "back_button": "Back",
+      "loading": "Loading..."
    },
    "ru": {
       "title": "Твой гороскоп",
@@ -37,6 +39,8 @@
          {"name": "Рыбы", "img": "/img/zodiacs/pisces.svg"}
       ],
       "zodiac_options": ["На день", "На неделю", "На месяц"],
-      "back_button": "Назад"
+      "back_button": "Назад",
+      "horoscope_for": "Гороскоп для ",
+      "loading": "Загрузка..."
    }
 }
