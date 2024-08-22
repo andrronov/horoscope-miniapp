@@ -15,9 +15,6 @@ function changeLanguage(language){
   isChangeLangModal.value = false
 }
 
-console.log('started web app', window.location);
-
-// Не удалять
 onBeforeMount(() => {
    const theme = Telegram.WebApp.colorScheme;
    theme === 'dark' ? darkMode.value = true : darkMode.value = false

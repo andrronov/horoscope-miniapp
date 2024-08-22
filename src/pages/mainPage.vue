@@ -1,7 +1,6 @@
 <script setup>
-import { onBeforeMount, ref } from 'vue';
+import { ref } from 'vue';
 import { useI18n } from 'vue-i18n';
-import { BackButton } from "vue-tg";
 import words from '../settings/lang/langs.json'
 import { useRouter } from 'vue-router';
 
@@ -40,6 +39,5 @@ function selectSignAndDate(date){
          <p class="p-2 bg-white/75 rounded-lg dark:text-black hover:scale-110 transition-transform duration-300 ease-in-out" v-for="(option, index) in words[lang].zodiac_options" :key="index" @click="selectSignAndDate(index)">{{ option }}</p>
          <p class="p-1 bg-white/50 rounded-lg mt-4 dark:text-black" @click="isOptionModal = false">{{ $t('back_button') }}</p>
       </div>
-      <BackButton @click="router.push('/main')" />
    </div>
 </template>

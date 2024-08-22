@@ -11,7 +11,7 @@ const routes = [
       component: () => import('../pages/horoscopePage.vue')
    },
    {
-      path: '/error',
+      path: '/:pathMatch(.*)*',
       component: () => import('../pages/errorPage.vue')
    }
 ]

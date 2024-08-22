@@ -19,6 +19,7 @@
       "zodiac_options": ["For day", "For week", "For month"],
       "horoscope_for": "Horoscope for ",
       "back_button": "Back",
+      "error_msg": "Error: Page doesn't found",
       "loading": "Loading..."
    },
    "ru": {
@@ -41,6 +42,7 @@
       "zodiac_options": ["На день", "На неделю", "На месяц"],
       "back_button": "Назад",
       "horoscope_for": "Гороскоп для ",
+      "error_msg": "Ошибка: страница не найдена",
       "loading": "Загрузка..."
    }
 }
