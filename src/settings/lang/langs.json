@@ -16,7 +16,8 @@
          {"name": "Aquarius", "img": "/img/zodiacs/aquarius.svg"},
          {"name": "Pisces", "img": "/img/zodiacs/pisces.svg"}
       ],
-      "zodiac_options": ["For day", "For week", "For month"]
+      "zodiac_options": ["For day", "For week", "For month"],
+      "back_button": "Back"
    },
    "ru": {
       "title": "Твой гороскоп",
@@ -35,6 +36,7 @@
          {"name": "Водолей", "img": "/img/zodiacs/aquarius.svg"},
          {"name": "Рыбы", "img": "/img/zodiacs/pisces.svg"}
       ],
-      "zodiac_options": ["На день", "На неделю", "На месяц"]
+      "zodiac_options": ["На день", "На неделю", "На месяц"],
+      "back_button": "Назад"
    }
 }
