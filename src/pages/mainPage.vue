@@ -19,8 +19,21 @@ function selectSign(idx){
 }
 
 function selectSignAndDate(date){
-   console.log(date);
-   router.push(`/horoscope?sign=${zodiac_sign.value}&date=${date}&idx=${sign_id.value}`)
+   switch (date) {
+      case 0:
+         router.push(`/horoscope?sign=${zodiac_sign.value}&date=today&idx=${sign_id.value}`)
+         break;
+      case 1:
+         router.push(`/horoscope?sign=${zodiac_sign.value}&date=week&idx=${sign_id.value}`)
+         break;
+      case 2:
+         router.push(`/horoscope?sign=${zodiac_sign.value}&date=month&idx=${sign_id.value}`)
+         break;
+      default:
+         router.push('/error')
+         break;
+   }
+   // router.push(`/horoscope?sign=${zodiac_sign.value}&date=${date}&idx=${sign_id.value}`)
 }
 </script>
 
