@@ -3,10 +3,13 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://andrronov.github.io/horoscope-miniapp/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
     "format-check": "prettier --check .",
     "format": "prettier --write ."
   },
@@ -24,6 +27,7 @@
     "@vitejs/plugin-vue": "^5.1.2",
     "autoprefixer": "^10.4.20",
     "eslint": "^9.39.1",
+    "gh-pages": "^6.3.0",
     "prettier": "^3.6.2",
     "vite": "^5.4.0"
   }
