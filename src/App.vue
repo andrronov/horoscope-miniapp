@@ -1,55 +1,53 @@
 <script setup>
-import { onBeforeMount, ref } from 'vue';
-import { useI18n } from 'vue-i18n';
-import wrapperComponent from './components/wrapperComponent.vue'
-import modalComponent from './components/modalComponent.vue';
+import { ref } from "vue";
+import WrapperComponent from "./components/wrapperComponent.vue";
+import ModalComponent from "./components/modalComponent.vue";
+import { useAppStore } from "./stores/app.js";
 
-const {t, locale} = useI18n({useScope: 'global'})
-const lang = ref(locale)
-const isChangeLangModal = ref(false)
-const darkMode = ref(null)
+const appStore = useAppStore();
 
-function changeLanguage(language){
-  lang.value = language
-  localStorage.setItem('userLang', language)
-  isChangeLangModal.value = false
+const isChangeLangModal = ref(false);
+
+function changeLanguage(language) {
+  appStore.setUserLang(language);
+  isChangeLangModal.value = false;
 }
-
-onBeforeMount(() => {
-   const theme = Telegram.WebApp.colorScheme;
-   theme === 'dark' ? darkMode.value = true : darkMode.value = false
-})
-
-onBeforeMount(() => {
-  if(localStorage.getItem('userLang')){
-    lang.value = localStorage.getItem('userLang')
-  } else {
-    lang.value = Telegram.WebApp.initDataUnsafe.user.language_code;
-    localStorage.setItem('userLang', lang.value)
-  }
-})
 </script>
 
 <template>
-  <wrapperComponent :title="$t('title')" :dark-mode="darkMode">
-
-    <!-- Сменить язык -->
-    <modalComponent :is-active="isChangeLangModal" @close="isChangeLangModal = false">
+  <WrapperComponent :title="$t('title')" :dark-mode="appStore.theme">
+    <ModalComponent
+      :is-active="isChangeLangModal"
+      @close="isChangeLangModal = false"
+    >
       <div class="dark:text-black flex flex-col items-center gap-4">
         <p class="font-medium">Select language:</p>
         <button @click="changeLanguage('en')">English</button>
-        <button @click="changeLanguage('ru')">Russian</button>
+        <button @click="changeLanguage('ru')">Русский</button>
       </div>
-    </modalComponent>
-    
+    </ModalComponent>
     <div>
-      <!-- Верхние кнопки -->
-      <button @click="isChangeLangModal = true"><img src="/img/lang.svg" alt="lang icon" class="w-8 h-8 absolute top-2 left-2 bg-white/50 dark:bg-white rounded-lg dark:text-white dark:fill-white"></button>    
-      <button v-if="!darkMode" @click="darkMode = true"><img src="/img/moon.svg" alt="lang icon" class="w-8 h-8 absolute top-2 right-2 bg-white/50 dark:bg-white rounded-lg dark:text-white dark:fill-white"></button>
-      <button v-if="darkMode" @click="darkMode = false"><img src="/img/sun.svg" alt="lang icon" class="w-8 h-8 absolute top-2 right-2 bg-white/50 dark:bg-white rounded-lg dark:text-white dark:fill-white"></button>
-  
-      <!-- Контент -->
-       <router-view />
+      <button @click="isChangeLangModal = true">
+        <img
+          src="/img/lang.svg"
+          alt="lang icon"
+          class="setting-button top-2 left-2"
+        />
+      </button>
+      <button @click="appStore.switchTheme()">
+        <img
+          :src="appStore.theme !== 'dark' ? '/img/moon.svg' : '/img/sun.svg'"
+          alt="theme icon"
+          class="setting-button top-2 right-2"
+        />
+      </button>
+      <RouterView />
     </div>
-  </wrapperComponent>
+  </WrapperComponent>
 </template>
+
+<style scoped>
+.setting-button {
+  @apply w-8 h-8 absolute bg-white/50 dark:bg-white rounded-lg dark:text-white dark:fill-white;
+}
+</style>

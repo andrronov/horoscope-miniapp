@@ -1,0 +1,54 @@
+{
+  "title": "Твой гороскоп",
+  "main_header": "Выбери свой знак зодиака",
+  "zodiac_signs": [
+    { "name": "Овен", "slug": "aries", "img": "/img/zodiacs/aries.svg" },
+    { "name": "Телец", "slug": "taurus", "img": "/img/zodiacs/taurus.svg" },
+    { "name": "Близнецы", "slug": "gemini", "img": "/img/zodiacs/gemini.svg" },
+    { "name": "Рак", "slug": "cancer", "img": "/img/zodiacs/cancer.svg" },
+    { "name": "Лев", "slug": "leo", "img": "/img/zodiacs/leo.svg" },
+    { "name": "Дева", "slug": "virgo", "img": "/img/zodiacs/virgo.svg" },
+    { "name": "Весы", "slug": "libra", "img": "/img/zodiacs/libra.svg" },
+    {
+      "name": "Скорпион",
+      "slug": "scorpio",
+      "img": "/img/zodiacs/scorpio.svg"
+    },
+    {
+      "name": "Стрелец",
+      "slug": "sagittarius",
+      "img": "/img/zodiacs/sagittarius.svg"
+    },
+    {
+      "name": "Козерог",
+      "slug": "capricorn",
+      "img": "/img/zodiacs/capricorn.svg"
+    },
+    {
+      "name": "Водолей",
+      "slug": "aquarius",
+      "img": "/img/zodiacs/aquarius.svg"
+    },
+    { "name": "Рыбы", "slug": "pisces", "img": "/img/zodiacs/pisces.svg" }
+  ],
+  "zodiac_options": [
+    {
+      "name": "На день",
+      "slug": "day"
+    },
+    {
+      "name": "На неделю",
+      "slug": "week"
+    },
+    {
+      "name": "На месяц",
+      "slug": "month"
+    }
+  ],
+  "back_button": "Назад",
+  "horoscope_for": "Гороскоп для ",
+  "error_msg": "Ошибка: страница не найдена",
+  "error_fetch": "Ошибка: не удалось загрузить гороскоп",
+  "error": "Ошибка: неизвестная ошибка",
+  "loading": "Загрузка..."
+}

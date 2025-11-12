@@ -1,43 +1,53 @@
-<template>
-   <div v-if="horoscope" class="border-2 border-black dark:border-white rounded-lg text-center px-2 mx-2">
-      <p class="font-semibold mb-4 underline">{{ $t('horoscope_for') }} {{ words[locale].zodiac_signs[route.query.idx].name }}</p>
-      <p>{{ horoscope.horoscope }}</p>
-   </div>
-   <p v-else>{{ $t('loading') }}</p>
-   <BackButton @click="$router.push('/main')" />
-</template>
-
 <script setup>
-import { onBeforeMount, ref } from "vue";
+import { onMounted, ref } from "vue";
 import { useRoute } from "vue-router";
-import { useI18n } from 'vue-i18n';
-import words from '../settings/lang/langs.json'
 import { BackButton } from "vue-tg";
+import { useAppStore } from "../stores/app";
 
-const {t, locale} = useI18n({useScope: 'global'})
-const route = useRoute()
-const horoscope = ref(null)
-const dateName = ref(route.query.date)
+const route = useRoute();
+const appStore = useAppStore();
 
-function fetchHoroscope(){
-   fetch('https://poker247tech.ru/get_horoscope/', {
-   method: 'POST',
-   headers: {
-      'Content-Type': 'application/json;charset=utf-8'
-   },
-  body: JSON.stringify({
-    "sign": route.query.sign,
-    "language": localStorage.getItem('userLang') === 'ru' ? 'original' : 'translated',
-    "period": route.query.date
-   })
-   }).then(data => data.json()).then(data => horoscope.value = data)
+const horoscope = ref(null);
+const loading = ref(true);
+
+function fetchHoroscope() {
+  fetch("https://poker247tech.ru/get_horoscope/", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json;charset=utf-8",
+    },
+    body: JSON.stringify({
+      sign: route.query.sign,
+      language: appStore.lang.value === "ru" ? "original" : "translated",
+      period: route.query.date,
+    }),
+  })
+    .then((data) => data.json())
+    .then((data) => (horoscope.value = data))
+    .finally(() => (loading.value = false));
 }
 
-onBeforeMount(() => {
-   fetchHoroscope()
-})
+onMounted(() => {
+  fetchHoroscope();
+});
 </script>
 
-<style>
-
-</style>
+<template>
+  <div
+    class="border-2 border-black dark:border-white rounded-lg text-center px-2 mx-2"
+  >
+    <p class="font-semibold mb-4 underline">
+      {{ $t("horoscope_for") }}
+      {{ $t(`zodiac_signs[${route.query.idx}].name`) }}
+    </p>
+    <p
+      v-if="!loading && !horoscope"
+      class="bg-red-500 p-2 rounded-lg text-white mt-3"
+    >
+      {{ $t("error_fetch") }}
+    </p>
+    <p v-if="horoscope">{{ horoscope.horoscope }}</p>
+  </div>
+  <p v-if="loading">{{ $t("loading") }}</p>
+  <BackButton @click="$router.push({ name: 'main' })" />
+</template>

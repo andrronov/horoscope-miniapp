@@ -1,0 +1,50 @@
+{
+  "title": "Your horoscope",
+  "main_header": "Select your zodiac sign",
+  "zodiac_signs": [
+    { "name": "Aries", "slug": "aries", "img": "/img/zodiacs/aries.svg" },
+    { "name": "Taurus", "slug": "taurus", "img": "/img/zodiacs/taurus.svg" },
+    { "name": "Gemini", "slug": "gemini", "img": "/img/zodiacs/gemini.svg" },
+    { "name": "Cancer", "slug": "cancer", "img": "/img/zodiacs/cancer.svg" },
+    { "name": "Leo", "slug": "leo", "img": "/img/zodiacs/leo.svg" },
+    { "name": "Virgo", "slug": "virgo", "img": "/img/zodiacs/virgo.svg" },
+    { "name": "Libra", "slug": "libra", "img": "/img/zodiacs/libra.svg" },
+    { "name": "Scorpio", "slug": "scorpio", "img": "/img/zodiacs/scorpio.svg" },
+    {
+      "name": "Sagittarius",
+      "slug": "sagittarius",
+      "img": "/img/zodiacs/sagittarius.svg"
+    },
+    {
+      "name": "Capricorn",
+      "slug": "capricorn",
+      "img": "/img/zodiacs/capricorn.svg"
+    },
+    {
+      "name": "Aquarius",
+      "slug": "aquarius",
+      "img": "/img/zodiacs/aquarius.svg"
+    },
+    { "name": "Pisces", "slug": "pisces", "img": "/img/zodiacs/pisces.svg" }
+  ],
+  "zodiac_options": [
+    {
+      "name": "For day",
+      "slug": "day"
+    },
+    {
+      "name": "For week",
+      "slug": "week"
+    },
+    {
+      "name": "For month",
+      "slug": "month"
+    }
+  ],
+  "horoscope_for": "Horoscope for ",
+  "back_button": "Back",
+  "error_msg": "Error: Page doesn't found",
+  "error_fetch": "Error: Failed to fetch horoscope",
+  "error": "Error: Unknown error",
+  "loading": "Loading..."
+}
