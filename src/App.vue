@@ -36,7 +36,7 @@ function changeLanguage(language) {
       </button>
       <button @click="appStore.switchTheme()">
         <img
-          :src="appStore.theme !== 'dark' ? '/img/moon.svg' : '/img/sun.svg'"
+          :src="appStore.theme !== 'dark' ? 'img/moon.svg' : 'img/sun.svg'"
           alt="theme icon"
           class="setting-button top-2 right-2"
         />

@@ -36,7 +36,11 @@ function selectDate(date) {
         :key="index"
         @click="selectSign({ ...sign, id: index })"
       >
-        <img :src="sign.img" class="w-5/12" :alt="`zodiac ${sign.name} icon`" />
+        <img
+          :src="`img/zodiacs/${sign.slug}.svg`"
+          class="w-5/12"
+          :alt="`zodiac ${sign.name} icon`"
+        />
         <p>{{ sign.name }}</p>
       </div>
     </div>
