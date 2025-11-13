@@ -1,1 +1,0 @@
-import{S as t}from"./index.es-CScS4qa2.js";import{c as a,a as o,t as s,i as n,b as m,F as i,o as l}from"./index-C98mcHsM.js";const p={class:"fon-semibold p-2 bg-red-500 text-white"},f={__name:"errorPage",setup(c){return(e,r)=>(l(),a(i,null,[o("h1",p,s(e.$t("error_msg")),1),n(m(t),{onClick:r[0]||(r[0]=u=>e.$router.push({name:"main"}))})],64))}};export{f as default};
